@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rapzmodz Official | Solusi Hosting Berkualitas Tinggi</title>
+
+<style>
+:root {
+  --bg: #0a0b14;
+  --card: #161b26;
+  --accent: #3a86ff;
+  --accent-hover: #2a76ef;
+  --text: #f0f2f5;
+  --text-secondary: #b0b8c5;
+  --border: #262d3d;
+  --gradient: linear-gradient(135deg, #3a86ff 0%, #6a11cb 100%);
+  --gradient-bg: linear-gradient(125deg, #0c0e1a 0%, #151a29 50%, #0a0b14 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--gradient-bg);
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(58, 134, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(106, 17, 203, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(58, 134, 255, 0.08) 0%, transparent 50%);
+  z-index: -2;
+  animation: bgFloat 20s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 2px);
+  background-size: 40px 40px;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+@keyframes bgFloat {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--gradient);
+  border-radius: 2px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--gradient);
+  border-radius: 2px;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+/* Header */
+header {
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, 
+    rgba(10, 11, 20, 0.95) 0%, 
+    rgba(22, 27, 38, 0.7) 50%,
+    rgba(10, 11, 20, 0) 100%);
+}
+
+/* Animated Rainbow Border */
+.rainbow-border {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.rainbow-border-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    #ff0080, 
+    #ff8c00, 
+    #40e0d0, 
+    #3a86ff,
+    #9d4edd,
+    #ff0080
+  );
+  background-size: 400% 100%;
+  animation: rainbowMove 4s linear infinite;
+}
+
+.rainbow-border-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    #9d4edd,
+    #3a86ff,
+    #40e0d0,
+    #ff8c00,
+    #ff0080,
+    #9d4edd
+  );
+  background-size: 400% 100%;
+  animation: rainbowMove 4s linear infinite reverse;
+}
+
+.rainbow-border-left {
+  top: 0;
+  left: 0;
+  width: 3px;
+  bottom: 0;
+  background: linear-gradient(180deg, 
+    #ff0080, 
+    #ff8c00, 
+    #40e0d0, 
+    #3a86ff,
+    #9d4edd,
+    #ff0080
+  );
+  background-size: 100% 400%;
+  animation: rainbowMoveVertical 6s linear infinite;
+}
+
+.rainbow-border-right {
+  top: 0;
+  right: 0;
+  width: 3px;
+  bottom: 0;
+  background: linear-gradient(180deg, 
+    #9d4edd,
+    #3a86ff,
+    #40e0d0,
+    #ff8c00,
+    #ff0080,
+    #9d4edd
+  );
+  background-size: 100% 400%;
+  animation: rainbowMoveVertical 6s linear infinite reverse;
+}
+
+@keyframes rainbowMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+@keyframes rainbowMoveVertical {
+  0% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 400%;
+  }
+}
+
+/* Floating dots around the border */
+.border-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: floatDot 3s infinite ease-in-out;
+}
+
+.border-dot:nth-child(1) {
+  background: #ff0080;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.border-dot:nth-child(2) {
+  background: #ff8c00;
+  top: 20%;
+  right: 15%;
+  animation-delay: 0.5s;
+}
+
+.border-dot:nth-child(3) {
+  background: #40e0d0;
+  bottom: 30%;
+  left: 5%;
+  animation-delay: 1s;
+}
+
+.border-dot:nth-child(4) {
+  background: #3a86ff;
+  bottom: 20%;
+  right: 10%;
+  animation-delay: 1.5s;
+}
+
+.border-dot:nth-child(5) {
+  background: #9d4edd;
+  top: 15%;
+  left: 85%;
+  animation-delay: 2s;
+}
+
+.border-dot:nth-child(6) {
+  background: #ff0080;
+  bottom: 15%;
+  right: 85%;
+  animation-delay: 2.5s;
+}
+
+@keyframes floatDot {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(10px, -5px) scale(1.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-5px, 10px) scale(0.8);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate(-10px, -5px) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  color: var(--text-secondary);
+  background: rgba(22, 27, 38, 0.4);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(58, 134, 255, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container & Grid */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+/* Cards */
+.card {
+  background: rgba(22, 27, 38, 0.7);
+  border: 1px solid rgba(58, 134, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(58, 134, 255, 0.1) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(106, 17, 203, 0.1) 100%
+  );
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  transition: transform 0.6s ease;
+  z-index: -1;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 0 100px rgba(58, 134, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover::after {
+  transform: rotate(45deg) translate(10%, 10%);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Buttons */
+.btn {
+  background: linear-gradient(135deg, 
+    rgba(58, 134, 255, 0.9) 0%, 
+    rgba(106, 17, 203, 0.9) 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 10px 20px rgba(58, 134, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 15px 30px rgba(58, 134, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid rgba(58, 134, 255, 0.3);
+  color: var(--text);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  background: rgba(58, 134, 255, 0.1);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: rgba(22, 27, 38, 0.95);
+  border-radius: 24px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 85vh;
+  overflow: hidden;
+  border: 1px solid rgba(58, 134, 255, 0.2);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 150px rgba(58, 134, 255, 0.1);
+  animation: slideUp 0.3s ease;
+  backdrop-filter: blur(20px);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(58, 134, 255, 0.1);
+  background: rgba(22, 27, 38, 0.8);
+  position: relative;
+}
+
+.modal-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    var(--accent), 
+    transparent 30%, 
+    transparent 70%, 
+    var(--accent)
+  );
+}
+
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: calc(85vh - 140px);
+}
+
+/* Product List */
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.product-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(58, 134, 255, 0.1);
+  color: var(--text);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gradient);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.product-btn:hover {
+  background: rgba(58, 134, 255, 0.1);
+  border-color: var(--accent);
+  transform: translateX(10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-btn:hover::before {
+  transform: scaleY(1);
+}
+
+.product-btn.selected {
+  background: rgba(58, 134, 255, 0.15);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateX(5px);
+}
+
+.product-btn.selected::before {
+  transform: scaleY(1);
+}
+
+/* Order Details */
+.order-details {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  border: 1px solid rgba(58, 134, 255, 0.1);
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.price-tag {
+  background: var(--gradient);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.price-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 100%
+  );
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--text-secondary);
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  position: relative;
+  border-top: 1px solid rgba(58, 134, 255, 0.1);
+  background: linear-gradient(
+    to top,
+    rgba(10, 11, 20, 0.8) 0%,
+    transparent 100%
+  );
+  backdrop-filter: blur(10px);
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--accent), 
+    transparent
+  );
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 1.1rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+
+/* Floating elements animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.floating-element {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  filter: blur(20px);
+  opacity: 0.1;
+  z-index: -1;
+  animation: float 15s ease-in-out infinite;
+}
+
+.floating-element:nth-child(1) {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+  width: 200px;
+  height: 200px;
+  top: 60%;
+  right: 10%;
+  animation-delay: -5s;
+  background: radial-gradient(circle, #6a11cb 0%, transparent 70%);
+}
+
+.floating-element:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  bottom: 20%;
+  left: 20%;
+  animation-delay: -10s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  .container { padding: 1rem; }
+  .grid { grid-template-columns: 1fr; }
+  header { padding: 3rem 1rem; }
+  .modal-content { margin: 1rem; }
+  
+  .floating-element, .border-dot {
+    display: none;
+  }
+  
+  .rainbow-border {
+    display: none;
+  }
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+
+<header>
+  <!-- Animated Rainbow Borders -->
+  <div class="rainbow-border rainbow-border-top"></div>
+  <div class="rainbow-border rainbow-border-bottom"></div>
+  <div class="rainbow-border rainbow-border-left"></div>
+  <div class="rainbow-border rainbow-border-right"></div>
+  
+  <!-- Floating colorful dots -->
+  <div class="border-dot"></div>
+  <div class="border-dot"></div>
+  <div class="border-dot"></div>
+  <div class="border-dot"></div>
+  <div class="border-dot"></div>
+  <div class="border-dot"></div>
+  
+  <div class="container text-center">
+    <h1>Marketplace Rapzmodz Official </h1>
+    <p class="subtitle">Solusi hosting berkualitas tinggi dengan performa optimal untuk kebutuhan digital Anda. Panel terkelola, nomor virtual, dan tools pengembangan yang andal.</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="grid">
+    
+    <div class="card">
+      <div class="card-icon">
+        <i class="fas fa-sim-card"></i>
+      </div>
+      <h3>Nomor Virtual</h3>
+      <p>Layanan nomor virtual untuk registrasi dan verifikasi platform digital. Tersedia pilihan regional dan internasional dengan kualitas terjaga.</p>
+      <button class="btn" onclick="openModal('nokos')">
+        <i class="fas fa-eye"></i>
+        Lihat Pilihan
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <i class="fas fa-server"></i>
+      </div>
+      <h3>Panel Pterodactyl</h3>
+      <p>Panel kontrol hosting dengan performa tinggi. Skalabilitas dari 1GB hingga unlimited resource dengan manajemen yang intuitif.</p>
+      <button class="btn" onclick="openModal('panel')">
+        <i class="fas fa-eye"></i>
+        Lihat Paket
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <i class="fas fa-code"></i>
+      </div>
+      <h3>Tools & Script</h3>
+      <p>Koleksi script dan tools pengembangan untuk optimasi sistem, keamanan, dan otomatisasi workflow.</p>
+      <button class="btn" onclick="openModal('script')">
+        <i class="fas fa-eye"></i>
+        Lihat Koleksi
+      </button>
+    </div>
+
+  </div>
+</main>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalTitle">Pilih Produk</h3>
+    </div>
+    <div class="modal-body">
+      <div class="product-list" id="productList"></div>
+      <div id="orderDetails"></div>
+    </div>
+    <div class="modal-footer" style="padding: 1.5rem; border-top: 1px solid rgba(58, 134, 255, 0.1);">
+      <button class="btn btn-outline" onclick="closeModal()" style="width: auto; margin-top: 0;">
+        <i class="fas fa-times"></i>
+        Tutup
+      </button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p class="brand">Rapzmodz Official</p>
+    <p>© 2024 Layanan Hosting Berkualitas All Quality.</p>
+    <p class="mt-2" style="font-size: 0.85rem; opacity: 0.7;">Solusi kebutuhan digital hosting anda yang sangat ramah di kanton</p>
+  </div>
+</footer>
+
+<script>
+const whatsappNumber = "628984669780";
+let selectedProduct = null;
+
+function openModal(type) {
+  document.body.classList.add('modal-open');
+  const modal = document.getElementById('modal');
+  const productList = document.getElementById('productList');
+  const modalTitle = document.getElementById('modalTitle');
+  
+  // Reset
+  productList.innerHTML = '';
+  document.getElementById('orderDetails').innerHTML = '';
+  selectedProduct = null;
+  
+  // Set modal title
+  const titles = {
+    'nokos': 'Pilih Nomor Virtual',
+    'panel': 'Pilih Paket Panel',
+    'script': 'Pilih Tools & Script'
+  };
+  modalTitle.textContent = titles[type] || 'Pilih Produk';
+  
+  // Add products based on type
+  if (type === 'nokos') {
+    productList.innerHTML = `
+      <button class="product-btn" onclick="selectProduct('Nomor Virtual Indonesia', 'Rp6.000')">
+        <div class="flex items-center justify-between">
+          <div>
+            <strong>Nomor Virtual Indonesia</strong>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Untuk registrasi platform lokal
+            </div>
+          </div>
+          <span style="color: var(--accent); font-weight: 600;">Rp6.000</span>
+        </div>
+      </button>
+      <button class="product-btn" onclick="selectProduct('Nomor Virtual Internasional', 'Rp5.000')">
+        <div class="flex items-center justify-between">
+          <div>
+            <strong>Nomor Virtual Internasional</strong>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Berbagai negara (kecuali wilayah terbatas)
+            </div>
+          </div>
+          <span style="color: var(--accent); font-weight: 600;">Rp5.000</span>
+        </div>
+      </button>
+    `;
+  }
+  
+  if (type === 'panel') {
+    let panelHTML = '';
+    for (let i = 1; i <= 10; i++) {
+      const price = i === 10 ? 'Rp10.000' : `Rp${i}.000`;
+      panelHTML += `
+        <button class="product-btn" onclick="selectProduct('Panel ${i}GB', '${price}')">
+          <div class="flex items-center justify-between">
+            <div>
+              <strong>Panel ${i}GB</strong>
+              <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                Resource ${i}GB • Support Prioritas
+              </div>
+            </div>
+            <span style="color: var(--accent); font-weight: 600;">${price}</span>
+          </div>
+        </button>
+      `;
+    }
+    panelHTML += `
+      <button class="product-btn" onclick="selectProduct('Panel Unlimited', 'Rp12.000')">
+        <div class="flex items-center justify-between">
+          <div>
+            <strong>Panel Unlimited</strong>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Resource tanpa batas • Full Access
+            </div>
+          </div>
+          <span style="color: var(--accent); font-weight: 600;">Rp12.000</span>
+        </div>
+      </button>
+      <button class="product-btn" onclick="selectProduct('Reseller Panel', 'Rp8.000')">
+        <div class="flex items-center justify-between">
+          <div>
+            <strong>Reseller Panel</strong>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Akses reseller • Manajemen multi-akun
+            </div>
+          </div>
+          <span style="color: var(--accent); font-weight: 600;">Rp8.000</span>
+        </div>
+      </button>
+      <button class="product-btn" onclick="selectProduct('Admin Panel', 'Rp15.000')">
+        <div class="flex items-center justify-between">
+          <div>
+            <strong>Admin Panel</strong>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Akses administratif lengkap
+            </div>
+          </div>
+          <span style="color: var(--accent); font-weight: 600;">Rp15.000</span>
+        </div>
+      </button>
+    `;
+    productList.innerHTML = panelHTML;
+  }
+  
+  if (type === 'script') {
+    productList.innerHTML = `
+      <button class="product-btn" onclick="selectProduct('Script cPanel', 'Rp5.000')">
+        <div class="flex items-center justify-between">
+          <div>
+            <strong>Script cPanel</strong>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Otomatisasi manajemen cPanel
+            </div>
+          </div>
+          <span style="color: var(--accent); font-weight: 600;">Rp5.000</span>
+        </div>
+      </button>
+      <button class="product-btn" onclick="selectProduct('Script Bug', 'Rp15.000')">
+        <div class="flex items-center justify-between">
+          <div>
+            <strong>Script Bug</strong>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Untuk testing keamanan sistem
+            </div>
+          </div>
+          <span style="color: var(--accent); font-weight: 600;">Rp15.000</span>
+        </div>
+      </button>
+      <button class="product-btn" onclick="selectProduct('Script MD', 'Rp10.000')">
+        <div class="flex items-center justify-between">
+          <div>
+            <strong>Script MD</strong>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Tools manajemen database
+            </div>
+          </div>
+          <span style="color: var(--accent); font-weight: 600;">Rp10.000</span>
+        </div>
+      </button>
+      <button class="product-btn" onclick="selectProduct('Function Bug', 'Rp35.000')">
+        <div class="flex items-center justify-between">
+          <div>
+            <strong>Function Bug</strong>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Koleksi fungsi untuk testing sistem
+            </div>
+          </div>
+          <span style="color: var(--accent); font-weight: 600;">Rp35.000</span>
+        </div>
+      </button>
+    `;
+  }
+  
+  modal.style.display = 'flex';
+}
+
+function selectProduct(name, price) {
+  selectedProduct = { name, price };
+  
+  // Update UI to show selected product
+  const buttons = document.querySelectorAll('.product-btn');
+  buttons.forEach(btn => {
+    btn.classList.remove('selected');
+    if (btn.textContent.includes(name)) {
+      btn.classList.add('selected');
+    }
+  });
+  
+  // Show order details
+  document.getElementById('orderDetails').innerHTML = `
+    <div class="order-details">
+      <h4 style="margin-bottom: 1rem;">Detail Pesanan</h4>
+      <div class="detail-item">
+        <span>Produk</span>
+        <strong>${name}</strong>
+      </div>
+      <div class="detail-item">
+        <span>Harga</span>
+        <div class="price-tag">${price}</div>
+      </div>
+      <button class="btn mt-2" onclick="processOrder()">
+        <i class="fab fa-whatsapp"></i>
+        Pesan via WhatsApp
+      </button>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem;">
+        <i class="fas fa-info-circle"></i>
+        Admin akan merespons dalam 1-15 menit
+      </p>
+    </div>
+  `;
+}
+
+function processOrder() {
+  if (!selectedProduct) return;
+  
+  const message = `Halo, saya tertarik dengan produk berikut:
+
+📋 **Detail Pesanan:**
+• Produk: ${selectedProduct.name}
+• Harga: ${selectedProduct.price}
+
+Mohon informasi lengkap mengenai proses pemesanan dan pembayaran. Terima kasih.`;
+  
+  const encodedMessage = encodeURIComponent(message);
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+}
+
+function closeModal() {
+  document.body.classList.remove('modal-open');
+  document.getElementById('modal').style.display = 'none';
+}
+
+// Close modal when clicking outside
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeModal();
+  }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+</script>
+
+</body>
+</html>
